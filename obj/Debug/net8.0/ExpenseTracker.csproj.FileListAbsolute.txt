@@ -45,6 +45,8 @@ C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Micro
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Npgsql.dll
+C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -153,6 +155,7 @@ C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\Expen
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.csproj.CoreCompileInputs.cache
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.sourcelink.json
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\scopedcss\bundle\ExpenseTracker.styles.css
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.development.json
@@ -163,10 +166,10 @@ C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\stati
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ExpenseTracker.props
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ExpenseTracker.props
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseT.567C5DF3.Up2Date
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\refint\ExpenseTracker.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.pdb
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.genruntimeconfig.cache
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ref\ExpenseTracker.dll
+C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
