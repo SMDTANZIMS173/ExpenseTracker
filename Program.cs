@@ -1,4 +1,4 @@
-
+﻿
 using ExpenseTracker.Data;
 using ExpenseTracker.Repositories;
 using ExpenseTracker.Services;
@@ -23,6 +23,20 @@ namespace ExpenseTracker
 
             builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
             builder.Services.AddScoped<IExpenseService, ExpenseService>();
+            // ✅ Add CORS Policy
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    policy =>
+                    {
+                        policy
+                            .AllowAnyOrigin()   // allow Flutter, web, or mobile apps
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
 
 
             var app = builder.Build();
@@ -36,7 +50,11 @@ namespace ExpenseTracker
 
             app.UseHttpsRedirection();
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseAuthorization();
+            // ✅ Enable CORS globally
+           
 
 
             app.MapControllers();
