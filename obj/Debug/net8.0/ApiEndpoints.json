@@ -2,7 +2,7 @@
   {
     "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
     "Method": "GetAll",
-    "RelativePath": "Expense",
+    "RelativePath": "api/Expense",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -12,7 +12,7 @@
   {
     "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
     "Method": "Add",
-    "RelativePath": "Expense",
+    "RelativePath": "api/Expense",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -28,7 +28,7 @@
   {
     "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
     "Method": "Get",
-    "RelativePath": "Expense/{id}",
+    "RelativePath": "api/Expense/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -43,8 +43,29 @@
   },
   {
     "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
+    "Method": "Update",
+    "RelativePath": "api/Expense/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "expense",
+        "Type": "ExpenseTracker.Models.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
     "Method": "Delete",
-    "RelativePath": "Expense/{id}",
+    "RelativePath": "api/Expense/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

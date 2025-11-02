@@ -21,6 +21,18 @@ namespace ExpenseTracker.Repositories
             _dbContext.Expenses.Add(expense);
             _dbContext.SaveChanges();
         }
+        public void Update(Expense expense)
+        {
+            var existingExpense = _dbContext.Expenses.FirstOrDefault(e => e.Id == expense.Id);
+            if (existingExpense != null)
+            {
+                existingExpense.Title = expense.Title;
+                existingExpense.Amount = expense.Amount;
+                existingExpense.Date = expense.Date;
+                _dbContext.SaveChanges();
+            }
+        }
+
 
         public void Delete(int id)
         {

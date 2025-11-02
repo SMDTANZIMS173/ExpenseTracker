@@ -8,6 +8,8 @@ namespace ExpenseTracker.Repositories
         IEnumerable<Expense> GetAll();
         Expense GetById(int id);
         void Add(Expense expense);
+        void Update(Expense expense);
+
         void Delete(int id);
     }
 }

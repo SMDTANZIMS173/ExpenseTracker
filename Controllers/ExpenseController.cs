@@ -39,6 +39,28 @@ namespace ExpenseTracker.Controllers
                 return BadRequest(ex.InnerException?.Message ?? ex.Message);
             }
         }
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] Expense expense)
+        {
+            try
+            {
+                var existing = _service.GetExpense(id);
+                if (existing == null) return NotFound();
+
+                // Update fields
+                existing.Title = expense.Title;
+                existing.Amount = expense.Amount;
+                existing.Date = expense.Date.ToUniversalTime();
+
+                _service.UpdateExpense(existing); // call service method
+                return Ok("Expense updated");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message ?? ex.Message);
+            }
+        }
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/Expense": {
+    "/api/Expense": {
       "get": {
         "tags": [
           "Expense"
@@ -46,7 +46,7 @@
         }
       }
     },
-    "/Expense/{id}": {
+    "/api/Expense/{id}": {
       "get": {
         "tags": [
           "Expense"
@@ -62,6 +62,46 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Expense"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expense"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expense"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Expense"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
