@@ -1,11 +1,14 @@
 using ExpenseTracker.Models;
 using ExpenseTracker.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ExpenseTracker.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseService _service;
@@ -15,13 +18,25 @@ namespace ExpenseTracker.Controllers
             _service = service;
         }
 
+        private int GetUserIdFromToken()
+        {
+            var idClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(idClaim)) throw new Exception("User id not found in token");
+            return int.Parse(idClaim);
+        }
+
         [HttpGet]
-        public IActionResult GetAll() => Ok(_service.GetAllExpenses());
+        public IActionResult GetAll()
+        {
+            var userId = GetUserIdFromToken();
+            return Ok(_service.GetAllExpensesForUser(userId));
+        }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var expense = _service.GetExpense(id);
+            var userId = GetUserIdFromToken();
+            var expense = _service.GetExpense(id, userId);
             if (expense == null) return NotFound();
             return Ok(expense);
         }
@@ -31,41 +46,47 @@ namespace ExpenseTracker.Controllers
         {
             try
             {
+                var userId = GetUserIdFromToken();
+                // ensure server sets the owner
+                expense.UserId = userId;
+                expense.Date = expense.Date.ToUniversalTime();
                 _service.AddExpense(expense);
                 return Ok("Expense added");
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.InnerException?.Message ?? ex.Message);
             }
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Expense expense)
         {
             try
             {
-                var existing = _service.GetExpense(id);
+                var userId = GetUserIdFromToken();
+                var existing = _service.GetExpense(id, userId);
                 if (existing == null) return NotFound();
 
-                // Update fields
+                // Update fields (keep UserId)
                 existing.Title = expense.Title;
                 existing.Amount = expense.Amount;
                 existing.Date = expense.Date.ToUniversalTime();
 
-                _service.UpdateExpense(existing); // call service method
+                _service.UpdateExpense(existing);
                 return Ok("Expense updated");
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 return BadRequest(ex.InnerException?.Message ?? ex.Message);
             }
         }
 
-
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _service.DeleteExpense(id);
+            var userId = GetUserIdFromToken();
+            _service.DeleteExpense(id, userId);
             return Ok("Deleted");
         }
     }

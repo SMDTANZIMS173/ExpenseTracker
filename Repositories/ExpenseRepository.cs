@@ -1,9 +1,11 @@
 ﻿using ExpenseTracker.Data;
 using ExpenseTracker.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ExpenseTracker.Repositories
 {
-    public class ExpenseRepository:IExpenseRepository
+    public class ExpenseRepository : IExpenseRepository
     {
         private readonly AppDbContext _dbContext;
 
@@ -12,31 +14,34 @@ namespace ExpenseTracker.Repositories
             _dbContext = dbContext;
         }
 
-        public IEnumerable<Expense> GetAll() => _dbContext.Expenses.ToList();
+        // return only expenses that belong to the user
+        public IEnumerable<Expense> GetAllForUser(int userId) =>
+            _dbContext.Expenses.Where(e => e.UserId == userId).ToList();
 
-        public Expense GetById(int id) => _dbContext.Expenses.FirstOrDefault(e => e.Id == id);
+        public Expense? GetById(int id, int userId) =>
+            _dbContext.Expenses.FirstOrDefault(e => e.Id == id && e.UserId == userId);
 
         public void Add(Expense expense)
         {
             _dbContext.Expenses.Add(expense);
             _dbContext.SaveChanges();
         }
+
         public void Update(Expense expense)
         {
-            var existingExpense = _dbContext.Expenses.FirstOrDefault(e => e.Id == expense.Id);
-            if (existingExpense != null)
+            var existing = _dbContext.Expenses.FirstOrDefault(e => e.Id == expense.Id && e.UserId == expense.UserId);
+            if (existing != null)
             {
-                existingExpense.Title = expense.Title;
-                existingExpense.Amount = expense.Amount;
-                existingExpense.Date = expense.Date;
+                existing.Title = expense.Title;
+                existing.Amount = expense.Amount;
+                existing.Date = expense.Date;
                 _dbContext.SaveChanges();
             }
         }
 
-
-        public void Delete(int id)
+        public void Delete(int id, int userId)
         {
-            var expense = _dbContext.Expenses.FirstOrDefault(e => e.Id == id);
+            var expense = _dbContext.Expenses.FirstOrDefault(e => e.Id == id && e.UserId == userId);
             if (expense != null)
             {
                 _dbContext.Expenses.Remove(expense);

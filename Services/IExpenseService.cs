@@ -1,14 +1,14 @@
 ﻿using ExpenseTracker.Models;
 using System.Collections.Generic;
+
 namespace ExpenseTracker.Services
 {
     public interface IExpenseService
     {
-        IEnumerable<Expense> GetAllExpenses();
-        Expense GetExpense(int id);
-        void AddExpense(Expense expense);
+        IEnumerable<Expense> GetAllExpensesForUser(int userId);
+        Expense? GetExpense(int id, int userId);
+        void AddExpense(Expense expense); // expense must have UserId set by controller
         void UpdateExpense(Expense expense);
-
-        void DeleteExpense(int id);
+        void DeleteExpense(int id, int userId);
     }
 }

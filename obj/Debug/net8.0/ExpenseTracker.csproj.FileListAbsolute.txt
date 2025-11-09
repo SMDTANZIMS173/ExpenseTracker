@@ -173,3 +173,4 @@ C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\Expen
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ExpenseTracker.genruntimeconfig.cache
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\ref\ExpenseTracker.dll
 C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\smdta\source\repos\ExpenseTracker\ExpenseTracker\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
