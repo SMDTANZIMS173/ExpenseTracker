@@ -1,0 +1,12 @@
+# Ignore secrets
+appsettings.json
+appsettings.*.json
+
+# .NET
+bin/
+obj/
+.vs/
+
+# OS
+.DS_Store
+Thumbs.db
